@@ -1,0 +1,48 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<body>
+<h3 class="text-center text-white pt-5">Gerenciamento de protocolos</h3>
+	<div class="container">
+		<div id="login-row" class="row justify-content-center align-items-center">
+	    	<div id="login-column" class="col-md-6">
+	        	<div id="login-box" class="col-md-12">
+					<form action="#" th:action="@{/protocolo/cadastrarProtocolo}" th:object="${protocolo}" method="post">
+                      <h3 class="text-center text-info">Cadastro de protocolos</h3>
+						<div class="form-group">
+					    		<label for="nomeSolicitante" class="text-info">Solicitante: </label>
+					    		<input type="text" class="form-control"th:field="*{nomeSolicitante}" id="nomeSolicitante" placeholder="Solicitante">
+					    	<span th:if="${#fields.hasErrors('nomeSolicitante')}" th:errors="*{nomeSolicitante}"></span>
+					    </div>
+					    <p>
+						<div class="form-group">
+					    		<label for="numeroProtocolo" class="text-info">Numero:</label>
+					    		<input type="number" class="form-control"th:field="*{numero}" id="numeroProtocolo" placeholder="Numero">
+					    	<span th:if="${#fields.hasErrors('numero')}" th:errors="*{numero}"></span>
+					    </div>
+					    <p>
+						<div class="form-group">
+						    <label for="anoProtocolo" class="text-info">Ano</label>
+						    <input type="number" class="form-control"th:field="*{ano}" id="anoProtocolo" placeholder="Ano">
+						    <span th:if="${#fields.hasErrors('ano')}" th:errors="*{ano}"></span>
+					    </div>
+					    <p>
+						<div class="form-group">
+							<div class="form-floating">
+							    <label for="descricaoProtocolo" class="text-info" >Descrição</label>
+							    <textarea class="form-control" th:field="*{descricaoProtocolo}" id="descricaoProtocolo" placeholder="Descrição"></textarea>
+							</div>
+							<span th:if="${#fields.hasErrors('descricaoProtocolo')}" th:errors="*{descricaoProtocolo}"></span>
+					    </div>
+					    <div class="form-group" style="text-align: center;">	
+					    	<input type="submit" class="btn btn-info btn-md" value="Salvar">   
+								<a class="btn btn-danger btn-md" href="../protocolo/protocolos">Cancelar</a>
+							</div>						
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
